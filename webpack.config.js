@@ -27,7 +27,7 @@ module.exports = {
   },
   resolve: {
     modules: [__dirname, "src", "node_modules"],
-    extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
+    extensions: ["*", ".js", ".jsx", ".css"],
   },
   module: {
     rules: [
@@ -35,6 +35,18 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: require.resolve("babel-loader"),
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
       },
     ],
   },

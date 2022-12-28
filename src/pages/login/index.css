@@ -1,0 +1,56 @@
+.login-container {
+  background: #fff;
+}
+
+.login-container .login-form {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  width: 30rem;
+  padding: 2rem 2rem;
+  margin: 10vh auto;
+}
+
+.login-container .login-input {
+  position: relative;
+}
+
+.login-container .header-text {
+  text-align: left;
+  font-size: 30px;
+  margin: 15px 0;
+  font-weight: 700;
+  color: #5f5f5f;
+}
+
+.login-container .password-icon {
+  position: absolute;
+  top: 55%;
+  right: 0.5rem;
+  filter: none;
+}
+
+.login-container .password-icon:hover {
+  cursor: pointer;
+}
+
+.login-container .password-icon .active {
+  filter: invert(40%) sepia(59%) saturate(1006%) hue-rotate(86deg)
+    brightness(100%) contrast(109%);
+}
+
+.login-container .login-button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  font-size: 16px;
+  border-radius: 3px;
+  border: none;
+  background: #2dc284;
+  color: #fff;
+}
+
+.login-container .login-button:hover {
+  cursor: pointer;
+  background-color: #2aa873;
+}

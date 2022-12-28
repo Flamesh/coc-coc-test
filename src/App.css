@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Segoe UI";
+  src: local("font"), url(/public/fonts/segoeui/segoeui.ttf) format("woff");
+}
+
+@font-face {
+  font-family: "Seguisb UI";
+  src: local("font"), url(/public/fonts/segoeui/seguisb.ttf) format("woff");
+}
+
+body {
+  font-family: "Segoe UI", "Seguisb UI", sans-serif;
+}
+
+input {
+  padding-left: 15px !important;
+}
+
+.flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a {
+  color: #2dc284;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #32d692;
+}
+.link:hover {
+  cursor: pointer;
+}
+
+.button-disabled {
+  background: #e0e0e0;
+  color: #9e9e9e;
+}
