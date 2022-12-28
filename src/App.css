@@ -9,7 +9,16 @@
 }
 
 body {
-  font-family: "Segoe UI", "Seguisb UI", sans-serif;
+  font-family: "Segoe UI", sans-serif;
+}
+
+input:checked {
+  background-color: #2dc284 !important;
+}
+
+.font-bold {
+  font-weight: bold;
+  font-family: "Seguisb UI", sans-serif;
 }
 
 input {
@@ -22,9 +31,23 @@ input {
   justify-content: space-between;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 a {
   color: #2dc284;
   text-decoration: underline;
+}
+
+p {
+  margin: 10px 0;
+}
+
+.text-error {
+  color: #f44336;
 }
 
 a:hover {
@@ -35,6 +58,17 @@ a:hover {
 }
 
 .button-disabled {
-  background: #e0e0e0;
-  color: #9e9e9e;
+  background: #e0e0e0 !important;
+  color: #9e9e9e !important;
+}
+
+.error-icon {
+  filter: invert(67%) sepia(89%) saturate(7492%) hue-rotate(346deg)
+    brightness(84%) contrast(146%);
+  font-size: 12px;
+}
+
+.icon-green {
+  filter: invert(40%) sepia(59%) saturate(1006%) hue-rotate(86deg)
+    brightness(100%) contrast(109%);
 }
