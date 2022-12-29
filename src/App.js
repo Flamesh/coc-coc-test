@@ -4,7 +4,7 @@ import Home from "pages/home";
 import { pagesMapping, RoutingContext } from "router";
 import "./App.css";
 function App() {
-  const { page } = useContext(RoutingContext);
+  const { page, isLogin } = useContext(RoutingContext);
 
   return (
     <div className="app-container">

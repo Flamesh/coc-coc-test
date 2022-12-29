@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import CheckIcon from "assets/icons/tick.svg";
 import "./index.css";
+import { RoutingContext } from "router";
 export default function Home() {
+  const context = useContext(RoutingContext);
+
+  useEffect(() => {
+    console.log(context);
+  }, [context]);
   return (
     <div className="home-container">
       <div className="flex welcome">
