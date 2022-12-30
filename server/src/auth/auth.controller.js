@@ -5,6 +5,8 @@ const authMethod = require("./auth.method");
 
 const dotenv = require("dotenv");
 dotenv.config();
+const tokenLife = process.env.TOKEN_LIFETIME;
+const tokenSecret = process.env.TOKEN_SECRET;
 
 const login = async (req, res) => {
   try {
@@ -26,9 +28,6 @@ const login = async (req, res) => {
         .status(401)
         .json({ message: "Account information incorrect", code: 401 });
     }
-
-    const tokenLife = process.env.TOKEN_LIFETIME;
-    const tokenSecret = process.env.TOKEN_SECRET;
 
     const dataUserForToken = {
       email: user.email,
@@ -58,7 +57,6 @@ const login = async (req, res) => {
       },
     });
   } catch (e) {
-    console.log(e);
     return res
       .status(500)
       .json({ message: "Internal server error", code: 500 });
