@@ -21,12 +21,14 @@
         - ``` cd server install ```
         - ``` npm install ```
         - ``` npm run dev ```
+
     **3. Test auth token**
         - Please use Postman or any software to help test API.
         - Use POST method call into ``` localhost:3001/auth/login  ``` which header is ```Content-type: application/json```, data are ```email: 'nobita@gmail.com' ``` and ```password: 123456```.
         - Get accessToken from resposne.
         - Use GET method call into ```localhost:3001/auth/test-auth```
         - Set authorization is ```Bearer {{accessToken}}``
+
     **4. Some new features with part 2**
         Frontend will have a difference with part 2 because I added:
         - Routing into a new page (No new dependencies)
