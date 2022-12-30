@@ -4,7 +4,7 @@
   "description": "Our team is requested to build a website that requires the authentication feature.\r The first task is creating the login screen, please help to implement the following parts:",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --open",
+    "dev": "webpack serve --open",
     "build": "webpack --config webpack.config.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

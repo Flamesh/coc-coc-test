@@ -5,7 +5,7 @@ import { StoreContext } from "context";
 import { pushRouterWithoutReload } from "utils/pushRouter";
 import { pagesMapping } from "router";
 export default function Home() {
-  const { isLogin, setPage } = useContext(StoreContext);
+  const { isLogin, setPage, user } = useContext(StoreContext);
 
   useEffect(() => {
     if (!isLogin) {
@@ -13,6 +13,8 @@ export default function Home() {
       setPage(pagesMapping.login);
     }
   }, [isLogin]);
+
+  useEffect(() => {}, [user]);
   return (
     <div className="home-container">
       <div className="flex welcome">
@@ -24,7 +26,7 @@ export default function Home() {
           height={20}
         />
         <p className="text-success">
-          Welcome Elsa, you have logged in successfully
+          Welcome {user.name}, you have logged in successfully
         </p>
       </div>
     </div>

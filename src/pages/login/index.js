@@ -10,7 +10,7 @@ import { login } from "handler/login";
 import { pagesMapping } from "router/index";
 
 export default function Login() {
-  const { isLogin, setIsLogin, setPage } = useContext(StoreContext);
+  const { isLogin, setIsLogin, setPage, setUser } = useContext(StoreContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -42,13 +42,23 @@ export default function Login() {
 
   const onLogin = async () => {
     setLoading(true);
-    const result = await login(email, password);
-    if (result) {
-      setIsLogin(true);
-      return;
+    setError(null);
+    try {
+      const result = await login(email, password);
+      if (result) {
+        setIsLogin(true);
+        const user = {
+          name: result.user.name,
+          email: result.user.email,
+          accessToken: result.accessToken,
+        };
+        setUser(user);
+        return;
+      }
+    } catch (err) {
+      setError(err);
+      setLoading(false);
     }
-    setLoading(false);
-    setError("Account information is incorrect");
   };
 
   return (
