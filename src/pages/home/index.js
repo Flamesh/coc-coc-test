@@ -1,13 +1,18 @@
 import React, { useContext, useEffect } from "react";
 import CheckIcon from "assets/icons/tick.svg";
 import "./index.css";
-import { RoutingContext } from "router";
+import { StoreContext } from "context";
+import { pushRouterWithoutReload } from "utils/pushRouter";
+import { pagesMapping } from "router";
 export default function Home() {
-  const context = useContext(RoutingContext);
+  const { isLogin, setPage } = useContext(StoreContext);
 
   useEffect(() => {
-    console.log(context);
-  }, [context]);
+    if (!isLogin) {
+      pushRouterWithoutReload("/login");
+      setPage(pagesMapping.login);
+    }
+  }, [isLogin]);
   return (
     <div className="home-container">
       <div className="flex welcome">

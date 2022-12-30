@@ -1,16 +1,9 @@
 import React, { useState, useMemo, createContext } from "react";
-
+import { StoreContext } from "context";
 export const pagesMapping = {
   home: "home",
   login: "login",
 };
-
-const stateContext = {
-  page: pagesMapping.home,
-  isLogin: false,
-};
-
-export const RoutingContext = createContext(stateContext);
 
 export default function Router({ children }) {
   let urlPath = window.location.pathname.slice(1).toLowerCase();
@@ -23,6 +16,6 @@ export default function Router({ children }) {
   );
 
   return (
-    <RoutingContext.Provider value={value}>{children}</RoutingContext.Provider>
+    <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
   );
 }

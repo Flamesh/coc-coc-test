@@ -1,15 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
-import { RoutingContext } from "router";
+import { StoreContext } from "context";
 import Input from "components/input";
 import Checkbox from "components/checkbox";
 import EyeIcon from "assets/icons/eye.svg";
 import ErrorIcon from "assets/icons/caution-circle.svg";
 import "./index.css";
-
+import { pushRouterWithoutReload } from "utils/pushRouter";
 import { login } from "handler/login";
+import { pagesMapping } from "router/index";
 
 export default function Login() {
-  const { isLogin, setIsLogin } = useContext(RoutingContext);
+  const { isLogin, setIsLogin, setPage } = useContext(StoreContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -18,7 +19,8 @@ export default function Login() {
 
   useEffect(() => {
     if (isLogin) {
-      window.location.href = "/home";
+      pushRouterWithoutReload("/home");
+      setPage(pagesMapping.home);
     }
   }, [isLogin]);
 
@@ -66,6 +68,7 @@ export default function Login() {
               value={email}
               onChange={handleChangeInput}
               error={email ? "" : "Required"}
+              autoFocus={true}
             />
           </div>
           <div className="login-input">

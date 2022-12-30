@@ -1,15 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Login from "pages/login";
 import Home from "pages/home";
-import { pagesMapping, RoutingContext } from "router";
+import { pagesMapping } from "router";
+import { StoreContext } from "context";
 import "./App.css";
 function App() {
-  const { page, isLogin } = useContext(RoutingContext);
+  const { page } = useContext(StoreContext);
 
+  useEffect(() => {}, [page]);
   return (
     <div className="app-container">
-      {pagesMapping.home === page && <Home />}
-      {pagesMapping.login === page && <Login />}
+      <div>
+        {pagesMapping.home === page && <Home />}
+        {pagesMapping.login === page && <Login />}
+      </div>
     </div>
   );
 }
